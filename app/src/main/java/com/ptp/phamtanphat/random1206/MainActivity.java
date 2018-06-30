@@ -9,13 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText edtSomin, edtSomax;
-    Button btnRandom;
+    Button btnRandom, btnAdd;
     TextView txtketqua;
+    ArrayList<Integer> mangnumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
         edtSomin = findViewById(R.id.edittextSomin);
         btnRandom = findViewById(R.id.buttonRandom);
         txtketqua = findViewById(R.id.textviewKetqua);
+        btnAdd = findViewById(R.id.buttonAddArray);
 
-        btnRandom.setOnClickListener(new View.OnClickListener() {
+        mangnumber = new ArrayList<>();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String textsomin = edtSomin.getText().toString();
                 String textsomax = edtSomax.getText().toString();
 
@@ -41,10 +45,22 @@ public class MainActivity extends AppCompatActivity {
                     somax = somin + 1;
                 }
 
+                for (int i = somin; i <= somax; i++) {
+                    mangnumber.add(i);
+                }
+            }
+        });
+
+        btnRandom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
                 Random random = new Random();
 
-                int ketqua = random.nextInt(somax - somin + 1) + somin;
-                txtketqua.append(ketqua + " - ");
+                int index = random.nextInt(mangnumber.size());
+                int value = mangnumber.get(index);
+                txtketqua.append(value + " - ");
+                mangnumber.remove(index);
             }
         });
 
