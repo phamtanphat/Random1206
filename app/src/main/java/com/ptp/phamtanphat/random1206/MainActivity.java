@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnRandom, btnAdd;
     TextView txtketqua;
     ArrayList<Integer> mangnumber;
-
+    String giatri = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +57,22 @@ public class MainActivity extends AppCompatActivity {
 
                 Random random = new Random();
 
-                int index = random.nextInt(mangnumber.size());
-                int value = mangnumber.get(index);
-                txtketqua.append(value + " - ");
-                mangnumber.remove(index);
+                if (mangnumber.size() > 0){
+                    int index = random.nextInt(mangnumber.size());
+                    int value = mangnumber.get(index);
+
+                    if (mangnumber.size() == 1){
+                        giatri += value;
+                    }else {
+                        giatri += value + " - ";
+                    }
+
+                    txtketqua.setText(giatri);
+                    mangnumber.remove(index);
+                }else {
+                    Toast.makeText(MainActivity.this, "Het phan tu de random", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
