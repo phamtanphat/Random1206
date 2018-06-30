@@ -13,9 +13,10 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtSomin,edtSomax ;
-    Button btnRandom ;
+    EditText edtSomin, edtSomax;
+    Button btnRandom;
     TextView txtketqua;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,16 +37,14 @@ public class MainActivity extends AppCompatActivity {
                 int somin = Integer.valueOf(textsomin);
                 int somax = Integer.valueOf(textsomax);
 
-                if (somin >= somax){
+                if (somin >= somax) {
                     somax = somin + 1;
                 }
 
                 Random random = new Random();
 
                 int ketqua = random.nextInt(somax - somin + 1) + somin;
-                3 5
-                txtketqua.setText(ketqua + "");
-
+                txtketqua.append(ketqua + " - ");
             }
         });
 
