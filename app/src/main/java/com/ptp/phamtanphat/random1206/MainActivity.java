@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText edtSomin,edtSomax ;
     Button btnRandom ;
+    TextView txtketqua;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         edtSomax = findViewById(R.id.edittextSomax);
         edtSomin = findViewById(R.id.edittextSomin);
         btnRandom = findViewById(R.id.buttonRandom);
+        txtketqua = findViewById(R.id.textviewKetqua);
 
         btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
                     somax = somin + 1;
                 }
 
+                Random random = new Random();
+
+                int ketqua = random.nextInt(somax - somin + 1) + somin;
+                3 5
+                txtketqua.setText(ketqua + "");
 
             }
         });
