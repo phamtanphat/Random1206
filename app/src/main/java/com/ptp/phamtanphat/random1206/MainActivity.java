@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
                     somax = somin + 1;
                 }
 
+                mangnumber.clear();
                 for (int i = somin; i <= somax; i++) {
                     mangnumber.add(i);
                 }
+                giatri = "";
+                txtketqua.setText(giatri);
             }
         });
-
         btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,19 +62,16 @@ public class MainActivity extends AppCompatActivity {
                 if (mangnumber.size() > 0){
                     int index = random.nextInt(mangnumber.size());
                     int value = mangnumber.get(index);
-
                     if (mangnumber.size() == 1){
                         giatri += value;
                     }else {
                         giatri += value + " - ";
                     }
-
                     txtketqua.setText(giatri);
                     mangnumber.remove(index);
                 }else {
                     Toast.makeText(MainActivity.this, "Het phan tu de random", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
