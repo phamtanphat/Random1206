@@ -35,13 +35,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:text="Random"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_below="@id/edittextSomax"
+        android:text="Them gia tri vao mang"
+        android:id="@+id/buttonAddArray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="Random"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/buttonAddArray"
         android:id="@+id/buttonRandom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/textviewKetqua"
         android:textColor="#2f417e"
